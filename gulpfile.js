@@ -1,2 +1,17 @@
-var gulp = require( 'gulp' );
-var gutil = require( 'gulp-util' );
+var gulp = require( 'gulp' ),
+	gutil = require( 'gulp-util' ),
+	compass = require( 'gulp-compass' );
+
+var sassSources = ['sass/style.scss']
+
+gulp.task( 'compass', function() {
+	gulp.src(sassSources)
+		.pipe(compass({
+			css: '',
+			sass: 'sass',
+			image: 'images',
+			style: 'expanded'
+		}))
+		.on('error', gutil.log)
+		.pipe(gulp.dest(''))
+});
