@@ -1,0 +1,23 @@
+{
+  "name": "iostarter",
+  "version": "0.0.1",
+  "description": "A Starter child theme for Genesis Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oalansari82/ioStarter.git"
+  },
+  "author": "Omar Al-Ansari",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/oalansari82/ioStarter/issues"
+  },
+  "homepage": "https://github.com/oalansari82/ioStarter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
+  }
+}
