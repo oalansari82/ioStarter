@@ -14,7 +14,6 @@ gulp.task( 'compass', function() {
 		}))
 		.on('error', gutil.log)
 		.pipe(gulp.dest(''))
-		.pipe(connect.reload())
 });
 
 gulp.task( 'watch', function() {
