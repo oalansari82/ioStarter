@@ -15,3 +15,9 @@ gulp.task( 'compass', function() {
 		.on('error', gutil.log)
 		.pipe(gulp.dest(''))
 });
+
+gulp.task( 'watch' , function() {
+	gulp.watch( 'sass/**/*.scss', ['compass'] );
+});
+
+gulp.task( 'default', ['compass', 'watch'] );
