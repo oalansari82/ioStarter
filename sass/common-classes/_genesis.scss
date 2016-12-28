@@ -1,0 +1,28 @@
+/* ## Genesis
+--------------------------------------------- */
+
+.breadcrumb {
+	background-color: $breadcrumb_background;
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin-bottom: 1px;
+	padding: 12px 30px;
+}
+
+.after-entry,
+.archive-description {
+	background-color: $after_entry_archive_description_background;
+	font-size: 18px;
+	font-size: 1.8rem;
+	margin-bottom: 40px;
+	padding: 60px;
+
+	@media only screen and (max-width: 860px) {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
+}
+
+.archive-description p:last-child {
+	margin-bottom: 0;
+}

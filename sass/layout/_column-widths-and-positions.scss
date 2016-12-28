@@ -1,0 +1,113 @@
+/* ## Column Widths and Positions
+--------------------------------------------- */
+
+/* ### Wrapping div for .content and .sidebar-primary */
+
+.content-sidebar-sidebar .content-sidebar-wrap,
+.sidebar-content-sidebar .content-sidebar-wrap,
+.sidebar-sidebar-content .content-sidebar-wrap {
+	width: 1060px;
+
+	@media only screen and (max-width: 1340px) {
+		width: 920px;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		width: 740px;
+	}
+
+	@media only screen and (max-width: 1023px) {
+		width: 100%;
+	}
+}
+
+.content-sidebar-sidebar .content-sidebar-wrap {
+	float: left;
+}
+
+.sidebar-content-sidebar .content-sidebar-wrap,
+.sidebar-sidebar-content .content-sidebar-wrap {
+	float: right;
+}
+
+/* ### Content */
+
+.content {
+	float: right;
+	width: 880px;
+
+	@media only screen and (max-width: 1340px) {
+		width: 800px;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		width: 620px;
+	}
+
+	@media only screen and (max-width: 1023px) {
+		width: 100%;
+	}
+}
+
+.content-sidebar .content,
+.content-sidebar-sidebar .content,
+.sidebar-content-sidebar .content {
+	float: left;
+}
+
+.content-sidebar-sidebar .content,
+.sidebar-content-sidebar .content,
+.sidebar-sidebar-content .content {
+	width: 660px;
+
+	@media only screen and (max-width: 1340px) {
+		width: 580px;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		width: 400px;
+	}
+
+	@media only screen and (max-width: 1023px) {
+		width: 100%;
+	}
+}
+
+.full-width-content .content {
+	width: 100%;
+}
+
+/* ### Primary Sidebar */
+
+.sidebar-primary {
+	float: right;
+	width: 360px;
+
+	@media only screen and (max-width: 1340px) {
+		width: 300px;
+	}
+
+	@media only screen and (max-width: 1023px) {
+		width: 100%;
+	}
+}
+
+.sidebar-content .sidebar-primary,
+.sidebar-sidebar-content .sidebar-primary {
+	float: left;
+}
+
+/* ### Secondary Sidebar */
+
+.sidebar-secondary {
+	float: left;
+	width: 180px;
+
+	@media only screen and (max-width: 1023px) {
+		width: 100%;
+	}
+}
+
+.content-sidebar-sidebar .sidebar-secondary {
+	float: right;
+}
