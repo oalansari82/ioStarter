@@ -35,3 +35,10 @@
 .landing-page .site-inner {
 	max-width: 800px;
 }
+
+.wrap {
+	@media only screen and (max-width: 860px) {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}

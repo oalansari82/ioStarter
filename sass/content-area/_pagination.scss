@@ -4,6 +4,14 @@
 .pagination {
 	clear: both;
 	margin: 40px 0;
+
+	@media only screen and (max-width: 860px) {
+		margin: 5% auto;
+
+		li a {
+			margin-bottom: 4px;
+		}
+	}
 }
 
 .adjacent-entry-pagination {
@@ -16,8 +24,8 @@
 	}
 	
 	a {
-		background-color: #fff;
-		color: #333;
+		background-color: $pagination_background_color;
+		color: $pagination_text_color;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 16px;
@@ -28,13 +36,13 @@
 
 		:hover,
 		:focus {
-			background-color: #c3251d;
-			color: #fff;
+			background-color: $pagination_background_hover_color;
+			color: $pagination_text_hover_color;
 		}
 	}
 
 	.active a {
-		background-color: #c3251d;
-		color: #fff;
+		background-color: $pagination_background_hover_color;
+		color: $pagination_text_hover_color;
 	}
 }
