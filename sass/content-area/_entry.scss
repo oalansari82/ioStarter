@@ -1,0 +1,37 @@
+/* # Content Area
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Entries
+--------------------------------------------- */
+
+.entry {
+	background-color: $entry_background;
+	margin-bottom: 40px;
+	padding: 70px 80px;
+}
+
+.entry-content {
+	ol,
+	ul {
+		margin-bottom: 28px;
+		margin-left: 40px;
+	}
+
+	ol > li {
+		list-style-type: decimal;
+	}
+
+	ul > li {
+		list-style-type: disc;
+	}
+
+	ol ol,
+	ul ul {
+		margin-bottom: 0;
+	}
+
+	code {
+		background-color: $code_background;
+		color: $code_text_color;
+	}
+}
