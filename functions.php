@@ -26,9 +26,9 @@ require_once( get_stylesheet_directory() . '/lib/customize.php' );
 include_once( get_stylesheet_directory() . '/lib/output.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Genesis Sample' );
-define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
-define( 'CHILD_THEME_VERSION', '2.2.4' );
+define( 'CHILD_THEME_NAME', 'ioStarter' );
+define( 'CHILD_THEME_URL', 'http://www.alansari.io/' );
+define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 //* Enqueue Scripts and Styles
 add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
@@ -64,9 +64,6 @@ add_theme_support( 'custom-header', array(
 	'flex-height'     => true,
 ) );
 
-//* Add support for custom background
-add_theme_support( 'custom-background' );
-
 //* Add support for after entry widget
 add_theme_support( 'genesis-after-entry-widget-area' );
 
@@ -77,7 +74,10 @@ add_theme_support( 'genesis-footer-widgets', 3 );
 add_image_size( 'featured-image', 720, 400, TRUE );
 
 //* Rename primary and secondary navigation menus
-add_theme_support( 'genesis-menus' , array( 'primary' => __( 'After Header Menu', 'genesis-sample' ), 'secondary' => __( 'Footer Menu', 'genesis-sample' ) ) );
+add_theme_support( 'genesis-menus' , array( 'primary' => __( 'Header Menu', 'genesis-sample' ), 'secondary' => __( 'Footer Menu', 'genesis-sample' ) ) );
+
+//* Remove the header right widget area
+unregister_sidebar( 'header-right' );
 
 //* Reposition the secondary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
