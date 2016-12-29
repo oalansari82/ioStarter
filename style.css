@@ -516,7 +516,7 @@ input,
 select,
 textarea {
   background-color: #fff;
-  border: 1px solid #999;
+  border: 1px solid #eee;
   color: #333;
   font-size: 18px;
   font-size: 1.8rem;
@@ -1269,26 +1269,6 @@ img.alignright,
   /* ## Site Header Navigation
   --------------------------------------------- */
 }
-.site-header .widget-area {
-  float: right;
-  text-align: right;
-  width: 800px;
-}
-@media only screen and (max-width: 1340px) {
-  .site-header .widget-area {
-    width: 800px;
-  }
-}
-@media only screen and (max-width: 1200px) {
-  .site-header .widget-area {
-    width: 620px;
-  }
-}
-@media only screen and (max-width: 1023px) {
-  .site-header .widget-area {
-    width: 100%;
-  }
-}
 .site-header ul.genesis-nav-menu {
   float: none;
 }
@@ -1309,9 +1289,25 @@ img.alignright,
     border: 0;
   }
 }
-.site-header .title-area,
 .site-header .widget-area {
-  text-align: center;
+  float: right;
+  text-align: right;
+  width: 800px;
+}
+@media only screen and (max-width: 1340px) {
+  .site-header .widget-area {
+    width: 800px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .site-header .widget-area {
+    width: 620px;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .site-header .widget-area {
+    width: 100%;
+  }
 }
 
 /* ## Title Area
