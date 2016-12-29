@@ -3,5 +3,10 @@
 
 .nav-primary {
 	background-color: $menu_background;
-	border-top: 1px solid #eee;
+	float: right;
+
+	@media only screen and (max-width: 1023px) {
+		clear: both;
+		width: 100%;
+	}
 }

@@ -79,6 +79,10 @@ add_theme_support( 'genesis-menus' , array( 'primary' => __( 'Header Menu', 'gen
 //* Remove the header right widget area
 unregister_sidebar( 'header-right' );
 
+// Reposition the primary navigation menu
+remove_action( 'genesis_after_header', 'genesis_do_nav' );
+add_action( 'genesis_header', 'genesis_do_nav' );
+
 //* Reposition the secondary navigation menu
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
