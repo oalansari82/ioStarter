@@ -4,11 +4,6 @@
 .title-area {
 	float: left;
 	padding: 10px 0;
-	/* width: 300px; */
-
-	/* @media only screen and (max-width: 1023px) {
-		width: 100%;
-	} */
 }
 
 .header-image { 
@@ -37,7 +32,6 @@
 	}
 }
 
-
 .header-full-width .title-area {
 	float: none;
 	width: 100%;
@@ -56,10 +50,6 @@
 		color: $main_font_color;
 		text-decoration: none;
 	}
-
-	/* @media only screen and (max-width: 1023px) {
-		text-align: center;
-	} */
 }
 
 .site-description {
@@ -68,8 +58,4 @@
 	font-weight: 400;
 	line-height: 1.5;
 	margin-bottom: 0;
-
-	/* @media only screen and (max-width: 1023px) {
-		text-align: center;
-	} */
 }
