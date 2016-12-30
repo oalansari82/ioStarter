@@ -62,10 +62,6 @@
 		.genesis-nav-menu {
 
 			.menu-item {
-				:hover {
-					position: relative;
-				}
-
 				> a:focus ul.sub-menu,
 				> a:focus ul.sub-menu .sub-menu {
 					left: 0;
