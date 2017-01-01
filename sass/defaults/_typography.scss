@@ -53,8 +53,8 @@ textarea:focus,
 a {
 	color: $links_color;
 	text-decoration: underline;
-	:hover,
-	:focus {
+	&:hover,
+	&:focus {
 		color: $main_font_color;
 		text-decoration: none;
 	}
