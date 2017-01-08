@@ -34,8 +34,8 @@
 		padding: 8px 12px;
 		text-decoration: none;
 
-		:hover,
-		:focus {
+		&:hover,
+		&:focus {
 			background-color: $pagination_background_hover_color;
 			color: $pagination_text_hover_color;
 		}
