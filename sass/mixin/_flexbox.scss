@@ -1,0 +1,9 @@
+@mixin flexContainer( $justify ) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: $justify;
+}
+
+@mixin flexItem( $basis ) {
+    flex-basis: $basis;
+}
