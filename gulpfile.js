@@ -2,7 +2,7 @@ var gulp = require( 'gulp' ),
 	gutil = require( 'gulp-util' ),
 	compass = require( 'gulp-compass' ),
 	autoprefixer = require('gulp-autoprefixer'),
-	sourcemaps = require('gulp-sourcemaps');;
+	sourcemaps = require('gulp-sourcemaps');
 
 var sassSources = ['sass/style.scss']
 
