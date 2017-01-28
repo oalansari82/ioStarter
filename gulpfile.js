@@ -2,7 +2,7 @@ var gulp = require( 'gulp' ),
 	gutil = require( 'gulp-util' ),
 	compass = require( 'gulp-compass' ),
 	autoprefixer = require('gulp-autoprefixer'),
-	sourcemaps = require('gulp-sourcemaps'),
+	/*sourcemaps = require('gulp-sourcemaps'),*/
 	rtlcss = require('gulp-rtlcss'),
 	rename = require('gulp-rename');
 
@@ -20,16 +20,16 @@ gulp.task( 'compass', function() {
 		.pipe(autoprefixer())
 		.on('error', gutil.log)
 		.pipe(gulp.dest(''))
-		.pipe(sourcemaps.init())
+		/*.pipe(sourcemaps.init())
 		.pipe(sourcemaps.write())
-    	.pipe(gulp.dest(''));
+    	.pipe(gulp.dest(''));*/
 });
 
 gulp.task( 'rtlcss', function() {
 	gulp.src(rtlSource)
 		.pipe(rtlcss())
 		.pipe(rename({ 
-			basename: "rtl",
+			basename: "style-rtl",
 			extname: ".css"
 		}))
         .pipe(gulp.dest(''));
