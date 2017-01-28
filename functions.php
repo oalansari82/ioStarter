@@ -118,3 +118,9 @@ function genesis_sample_comments_gravatar( $args ) {
 	return $args;
 
 }
+
+// Enqueue replace style.css with style-rtl.css 
+add_action( 'wp_enqueue_scripts', 'io_enqueue_style_rtl_scripts' );
+function io_enqueue_style_rtl_scripts() {
+	wp_style_add_data( 'iostarter', 'rtl', 'replace' );
+}
