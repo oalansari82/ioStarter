@@ -298,7 +298,7 @@ body > div {
 body {
   background-color: #eee;
   color: #333;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
   font-size: 2rem;
   -webkit-font-smoothing: antialiased;
@@ -387,7 +387,7 @@ blockquote ::before {
 /* ## Headings
 --------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 36px;
   font-size: 3.6rem;
   font-weight: 600;

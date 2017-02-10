@@ -20,7 +20,7 @@ body > div {
 body {
 	background-color: $body_background_color;
 	color: $main_font_color;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: $font_body;
 	font-size: 20px;
 	font-size: 2rem;
 	-webkit-font-smoothing: antialiased;
