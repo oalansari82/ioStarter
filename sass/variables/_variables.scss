@@ -5,8 +5,8 @@ $light_grey: #f7f7f8;
 $dark_grey: #777;
 $primary_color: #c3251d;
 
-$font_body: 'Source Sans Pro', sans-serif #{"/*rtl:'Arial', sans-serif*/"};
-$font_heading: 'Source Sans Pro', sans-serif #{"/*rtl:'Arial', sans-serif*/"};
+$font_body: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Arial\", */"};
+$font_heading: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Arial\", */"};
 
 // Backgrounds
 $body_background_color: $grey;
