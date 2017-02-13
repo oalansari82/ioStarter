@@ -2,13 +2,18 @@ var gulp = require( 'gulp' ),
 	gutil = require( 'gulp-util' ),
 	compass = require( 'gulp-compass' ),
 	autoprefixer = require('gulp-autoprefixer'),
-	/*sourcemaps = require('gulp-sourcemaps'),*/
 	rtlcss = require('gulp-rtlcss'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+	browserSync  = require('browser-sync'),
+	reload = browserSync.reload;
 
 var sassSources = ['sass/style.scss']
 var rtlSource = ['style.css']
 
+// Define BrowserSync proxy url
+var bs_url = 'iostarter.dev';
+
+// Sass
 gulp.task( 'compass', function() {
 	gulp.src(sassSources)
 		.pipe(compass({
@@ -20,11 +25,9 @@ gulp.task( 'compass', function() {
 		.pipe(autoprefixer())
 		.on('error', gutil.log)
 		.pipe(gulp.dest(''))
-		/*.pipe(sourcemaps.init())
-		.pipe(sourcemaps.write())
-    	.pipe(gulp.dest(''));*/
 });
 
+// Right to left CSS
 gulp.task( 'rtlcss', function() {
 	gulp.src(rtlSource)
 		.pipe(rtlcss())
@@ -35,9 +38,18 @@ gulp.task( 'rtlcss', function() {
         .pipe(gulp.dest(''));
 });
 
-gulp.task( 'watch', function() {
-	gulp.watch( 'sass/**/*.scss', ['compass'] );
-	gulp.watch( 'style.css', ['rtlcss'] );
+// Browsersync
+gulp.task('browsersync', function() {
+    browserSync({
+        proxy: bs_url,
+        notify: false
+    });
+
+    // Watch for changes
+    gulp.watch( 'sass/**/*.scss', ['compass'] );
+	gulp.watch( 'style.css', ['rtlcss'] ).on("change", reload);
+	gulp.watch("**/*.php").on("change", reload);
 });
 
-gulp.task( 'default', ['compass', 'rtlcss', 'watch'] );
+// Default 
+gulp.task( 'default', ['compass', 'rtlcss', 'browsersync'] );
