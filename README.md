@@ -9,3 +9,13 @@ This is a custom child theme for Genesis Framework. It is still being built for 
 - ~~gulp-sourcemaps~~
 - gulp-rtlcss
 - gulp-rename
+- browser-sync
+
+## Install Gulp
+Fun the following command to install Gulp
+`npm install gulp`
+
+## Install Gulp Dependencies
+Run the following command to install the rest of the dependencies.
+`npm install --dev-save gulp-util gulp-compass gulp-autoprefixer gulp-rtlcss gulp-rename browser-sync`
+
