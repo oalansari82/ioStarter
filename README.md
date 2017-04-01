@@ -6,7 +6,6 @@ This is a custom child theme for Genesis Framework. It is still being built for 
 - gulp-util
 - gulp-compass
 - gulp-autoprefixer
-- ~~gulp-sourcemaps~~
 - gulp-rtlcss
 - gulp-rename
 - browser-sync
