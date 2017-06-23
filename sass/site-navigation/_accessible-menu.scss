@@ -1,89 +1,92 @@
 /* ## Accessible Menu
 --------------------------------------------- */
 
-.menu {
-	.menu-item:focus {
-		position: static;
-	}
-	.menu-item > a:focus + ul.sub-menu,
-	.menu-item.sfHover > ul.sub-menu {
-		left: auto;
-		opacity: 1;
-	}
+.menu .menu-item:focus {
+	position: static;
+}
+
+.menu .menu-item > a:focus + ul.sub-menu,
+.menu .menu-item.sfHover > ul.sub-menu {
+	left: auto;
+	opacity: 1;
 }
 
 .menu-toggle {
-	display: none;
-	visibility: hidden;
-
-	@media only screen and (max-width: 1023px) {
-		border-width: 0;
-		background-color: #fff;
-		color: #333;
-		display: block;
-		margin: 0 auto;
-		overflow: hidden;
-		text-align: center;
-		visibility: visible;
-		border-top: 1px solid #eee;
-		line-height: 20px;
+	@include bp-large {
+		line-height: 22px;
 		position: relative;
-		right: 0;
+		width: auto;
 		z-index: 1000;
+		border-top: none;
 		float: right;
-		top: 20px;
+        margin-top: 16px;
 
-		&:before,
-		&.activated:before {
+		&:focus,
+		&:hover {
+			background-color: #fff;
+			border-width: 0;
+			color: #c3251d;
+			border-top: none;
+		}
+
+		&::before {
+			font-size: 1.5em;
 			margin-right: 10px;
 			text-rendering: auto;
-			-webkit-transform: translate(0, 0);
-			-ms-transform:     translate(0, 0);
-			transform:         translate(0, 0);
 		}
 	}
 }
 
-
 .sub-menu-toggle {
-	display: none;
-	visibility: hidden;
-
-	@media only screen and (max-width: 1023px) {
-		border-width: 0;
-		background-color: #fff;
-		color: #333;
-		display: block;
-		margin: 0 auto;
-		overflow: hidden;
-		text-align: center;
-		visibility: visible;
+	@include bp-large {
 		float: right;
-		padding: 10px;
+		padding: 13px 10px;
 		position: absolute;
 		right: 0;
 		top: 0;
 		z-index: 100;
 
-		&:hover,
-		&:focus {
+		&:focus,
+		&:hover {
+			background-color: #fff;
 			border-width: 0;
+			color: #c3251d;
 		}
 
-		&:before {
+		&::before {
 			display: inline-block;
 			text-rendering: auto;
-			-webkit-transform: translate(0, 0);
-			-ms-transform:     translate(0, 0);
-			transform:         translate(0, 0);
+			-webkit-transform: rotate( 0 );
+			-ms-transform:     rotate( 0 );
+			transform:         rotate( 0 );
+			-webkit-transition: transform .25s ease-in-out;
+			-ms-transition:     transform .25s ease-in-out;
+			transition:         transform .25s ease-in-out;
+		}
+
+		&.activated::before {
+			-webkit-transform: rotate( 180deg );
+			-ms-transform:     rotate( 180deg );
+			transform:         rotate( 180deg );
 		}
 	}
 }
 
-@media only screen and (max-width: 1023px) {
-	
-	.sub-menu-toggle.activated:before {
-		content: "\f142";
-	}
+.menu-toggle,
+.sub-menu-toggle {
+	display: none;
+	visibility: hidden;
 
+	@include bp-large {
+		background-color: #fff;
+		border-width: 0;
+		color: #333;
+		display: block;
+		margin: 10px auto;
+		overflow: hidden;
+		text-align: center;
+		visibility: visible;
+		padding: 12px 10px;
+	}
 }
+

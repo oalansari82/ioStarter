@@ -1,0 +1,7 @@
+/* ## Backgrounds
+--------------------------------------------- */
+@mixin background( $imageLink ) {
+    background: url($imageLink);
+    background-size: cover;
+    background-position: center center;
+}

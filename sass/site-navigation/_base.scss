@@ -1,96 +1,88 @@
-/* # Site Navigation
----------------------------------------------------------------------------------------------------- */
-
 .genesis-nav-menu {
 	clear: both;
-	font-size: 16px;
-	font-size: 1.6rem;
+	@include font-size(1.6);
 	font-weight: 600;
 	line-height: 1;
 	width: 100%;
 
-	 a {
-		color: #333;
-		text-decoration: none;
-		display: block;
-		padding: 32px 20px;
-		&:hover,
-		&:focus {
-			color: $links_color;
-			text-decoration: underline;
-		}
-	}
-
-	.menu-item {
-		display: inline-block;
-		margin-bottom: 0;
-		padding-bottom: 0;
-		text-align: left;
-
-		&:hover {
-			position: static;
-		}
-
-		&:hover > .sub-menu {
-			left: auto;
-			opacity: 1;
-		}
-	}
-
-	.sub-menu {
-		border-top: 1px solid $border_color;
-		left: -9999px;
-		opacity: 0;
-		position: absolute;
-		-webkit-transition: opacity .4s ease-in-out;
-		-moz-transition:    opacity .4s ease-in-out;
-		-ms-transition:     opacity .4s ease-in-out;
-		-o-transition:      opacity .4s ease-in-out;
-		transition:         opacity .4s ease-in-out;
-		width: 200px;
-		z-index: 99;
-
-		a {
-			background-color: #fff;
-			border: 1px solid $border_color;
-			border-top: 0;
-			font-size: 14px;
-			font-size: 1.4rem;
-			padding: 20px;
-			position: relative;
-			width: 200px;
-			word-wrap: break-word;
-		}
-
-		.sub-menu {
-			margin: -56px 0 0 199px;
-		}
-	}
-
-	.current-menu-item > a,
-	.sub-menu .current-menu-item > a:hover,
-	.sub-menu .current-menu-item > a:focus  {
-		color: $links_color;
-		text-decoration: underline;
-	}
-
-	& > .first > a {
-		padding-left: 0;
-	}
-
-	& > .last > a {
-		padding-right: 0;
-	}
-
-	& > .right {
-		float: right;
-	}
-
-	@media only screen and (max-width: 1023px) {
+	@include bp-large {
 		text-align: center;
-		
-		li {
-			float: none;
-		}
 	}
+
+	li {
+		float: none;
+	}
+}
+
+.genesis-nav-menu .menu-item {
+	display: inline-block;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: left;
+}
+
+.genesis-nav-menu a {
+	color: $black;
+	display: block;
+	padding: 32px 20px;
+	text-decoration: none;
+}
+
+.genesis-nav-menu a:focus,
+.genesis-nav-menu a:hover,
+.genesis-nav-menu .current-menu-item > a,
+.genesis-nav-menu .sub-menu .current-menu-item > a:focus,
+.genesis-nav-menu .sub-menu .current-menu-item > a:hover  {
+	color: $link;
+	text-decoration: underline;
+}
+
+.genesis-nav-menu .sub-menu {
+	border-top: 1px solid $grey;
+	left: -9999px;
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: opacity .4s ease-in-out;
+	-moz-transition:    opacity .4s ease-in-out;
+	-ms-transition:     opacity .4s ease-in-out;
+	-o-transition:      opacity .4s ease-in-out;
+	transition:         opacity .4s ease-in-out;
+	width: 200px;
+	z-index: 99;
+}
+
+.genesis-nav-menu .sub-menu a {
+	background-color: $white;
+	border: 1px solid $grey;
+	border-top: 0;
+	@include font-size(1.4);
+	padding: 20px;
+	position: relative;
+	width: 200px;
+	word-wrap: break-word;
+}
+
+.genesis-nav-menu .sub-menu .sub-menu {
+	margin: -56px 0 0 199px;
+}
+
+.genesis-nav-menu .menu-item:hover {
+	position: static;
+}
+
+.genesis-nav-menu .menu-item:hover > .sub-menu {
+	left: auto;
+	opacity: 1;
+}
+
+.genesis-nav-menu > .first > a {
+	padding-left: 0;
+}
+
+.genesis-nav-menu > .last > a {
+	padding-right: 0;
+}
+
+.genesis-nav-menu > .right {
+	float: right;
 }

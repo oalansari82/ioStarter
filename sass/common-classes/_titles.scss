@@ -2,29 +2,27 @@
 --------------------------------------------- */
 
 .archive-description .entry-title,
-.archive-title {
-	font-size: 20px;
-	font-size: 2rem;
+.archive-title,
+.author-box-title {
+	@include font-size(2);
 }
 
 .entry-title {
-	font-size: 36px;
-	font-size: 3.6rem;
+	@include font-size(3.6);
 }
 
 .entry-title a,
 .sidebar .widget-title a {
-	color: #333;
+	color: $black;
 	text-decoration: none;
 }
 
-.entry-title a:hover,
-.entry-title a:focus {
-	color: $links_color;
+.entry-title a:focus,
+.entry-title a:hover {
+	color: $link;
 }
 
 .widget-title {
-	font-size: 18px;
-	font-size: 1.8rem;
+	@include font-size(1.8);
 	margin-bottom: 20px;
 }

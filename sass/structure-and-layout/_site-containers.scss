@@ -1,0 +1,39 @@
+/* ## Site Containers
+--------------------------------------------- */
+
+.site-inner,
+.wrap {
+	margin: 0 auto;
+	max-width: 1280px;
+
+	@include bp-xxlarge {
+		max-width: 1140px;
+	}
+	@include bp-xlarge {
+		max-width: 960px;
+	}
+	@include bp-large {
+		max-width: 800px;
+	}
+}
+
+.site-inner {
+	clear: both;
+	padding-top: 40px;
+	word-wrap: break-word;
+
+	@include bp-medium {
+		padding: 5% 5% 0;
+	}
+}
+
+.wrap {
+	@include bp-medium {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+.landing-page .site-inner {
+	max-width: 800px;
+}

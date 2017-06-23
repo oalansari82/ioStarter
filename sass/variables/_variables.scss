@@ -1,57 +1,21 @@
-$white: #fff;
+/* # Loading SCSS variables
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Colors
+--------------------------------------------- */
 $black: #333;
+$white: #fff;
 $grey: #eee;
-$light_grey: #f7f7f8;
-$dark_grey: #777;
-$primary_color: #c3251d;
+$link: #c3251d;
 
-$font_body: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Arial\", */"};
-$font_heading: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Arial\", */"};
-
-// Backgrounds
-$body_background_color: $grey;
-$text_background_color: $white;
-$breadcrumb_background: $white;
-$after_entry_archive_description_background: $white;
-
-// Fonts 
-$main_font_color: $black;
-$links_color: $primary_color;
-
-// Buttons
-$buttons_background_color: $black;
-$buttons_text_color: $white;
-
-$buttons_background_hover_color: $primary_color;
-
-$buttons_disabled_background_color: $grey;
-$buttons_disabled_text_color: $dark_grey;
-
-// Borders
-$border_color: $grey;
-$border_hover_color: #999;
-
-// Navigation 
-$menu_background: $white;
-
-//Content Area 
-$entry_background: $white;
-$code_background: $grey;
-
-$code_text_color: $black;
-
-// Pagination
-$pagination_background_color: $white;
-$pagination_background_hover_color: $primary_color;
-
-$pagination_text_color: $black;
-$pagination_text_hover_color: $white;
+$twitter: #0084b4;
+$facebook: #3b5998;
+$linkedin: #0077b5;
 
 
-// Sidebars
-$sidebar_widget_area_background_color: $white;
+/* ## Fonts
+--------------------------------------------- */
 
-// Footer 
-$site_footer_background_color: $white;
-
-$footer_border_color: $grey;
+$font_body: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Cairo\", */"};
+$font_heading: 'Source Sans Pro', sans-serif #{"/*rtl:prepend:\"Cairo\", */"};
+$language_swicher: 'Cairo', sans-serif #{"/*rtl:prepend:\"Source Sans Pro\", */"};

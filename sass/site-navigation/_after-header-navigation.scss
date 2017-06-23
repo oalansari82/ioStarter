@@ -1,0 +1,13 @@
+/* ## After Header Navigation
+--------------------------------------------- */
+
+.nav-primary {
+	background-color: $white;
+	border-top: none;
+    float: right;
+
+	@include bp-large {
+		float: none;
+        clear: both;
+	}
+}

@@ -1,22 +1,18 @@
-/* # Sidebars
----------------------------------------------------------------------------------------------------- */
-
 .sidebar {
-	font-size: 16px;
-	font-size: 1.6rem;
+	@include font-size(1.6);
 	margin-bottom: 40px;
 
-	.widget {
-		background-color: $sidebar_widget_area_background_color;
-		padding: 40px;
-	}
-
-	@media only screen and (max-width: 860px) {
+	@include bp-medium {
 		margin-bottom: 5%;
+	}
+}
 
-		.widget {
-			padding: 30px;
-			margin-bottom: 5%;
-		}
+.sidebar .widget {
+	background-color: $white;
+	padding: 40px;
+
+	@include bp-medium {
+		padding: 30px;
+		margin-bottom: 5%;
 	}
 }

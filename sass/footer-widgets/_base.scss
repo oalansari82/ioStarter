@@ -1,11 +1,7 @@
-/* # Footer Widgets
----------------------------------------------------------------------------------------------------- */
-
 .footer-widgets {
-	background-color: #fff;
-	font-size: 18px;
-	font-size: 1.8rem;
+	background-color: $white;
 	clear: both;
+	@include font-size(1.8);
 	padding: 60px 0;
 }
 
@@ -14,15 +10,13 @@
 .footer-widgets-3 {
 	width: 380px;
 
-	@media only screen and (max-width: 1340px) {
+	@include bp-xxlarge {
 		width: 340px;
 	}
-
-	@media only screen and (max-width: 1200px) {
+	@include bp-xlarge {
 		width: 300px;
 	}
-
-	@media only screen and (max-width: 1023px) {
+	@include bp-large {
 		width: 100%;
 	}
 }
@@ -30,11 +24,10 @@
 .footer-widgets-1 {
 	margin-right: 70px;
 
-	@media only screen and (max-width: 1340px) {
+	@include bp-xxlarge {
 		margin-right: 60px;
 	}
-
-	@media only screen and (max-width: 1200px) {
+	@include bp-xlarge {
 		margin-right: 30px;
 	}
 }
@@ -43,7 +36,7 @@
 .footer-widgets-2 {
 	float: left;
 
-	@media only screen and (max-width: 1023px) {
+	@include bp-large {
 		margin: 0 auto 40px;
 	}
 }

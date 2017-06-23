@@ -1,6 +1,3 @@
-/* # Plugins
----------------------------------------------------------------------------------------------------- */
-
 /* ## Genesis eNews Extended
 --------------------------------------------- */
 
@@ -10,28 +7,27 @@
 }
 
 .sidebar .widget.enews-widget {
-	background-color: #333;
+	background-color: $black;
 }
 
 .sidebar .enews-widget input,
 .sidebar .enews-widget input:focus {
-	border: 1px solid #333;
+	border: 1px solid $black;
 }
 
 .sidebar .enews-widget input[type="submit"] {
-	background-color: #c3251d;
-	color: #fff;
+	background-color: $link;
+	color: $white;
 }
 
-.sidebar .enews-widget input:hover[type="submit"],
-.sidebar .enews-widget input:focus[type="submit"]  {
-	background-color: #fff;
-	color: #333;
+.sidebar .enews-widget input[type="submit"]:focus,
+.sidebar .enews-widget input[type="submit"]:hover  {
+	background-color: $white;
+	color: $black;
 }
 
 .enews-widget input {
-	font-size: 16px;
-	font-size: 1.6rem;
+	@include font-size(1.6);
 	margin-bottom: 16px;
 }
 

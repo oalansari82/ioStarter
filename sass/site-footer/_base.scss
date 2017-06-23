@@ -1,16 +1,12 @@
-/* # Site Footer
----------------------------------------------------------------------------------------------------- */
-
 .site-footer {
-	background-color: $site_footer_background_color;
-	border-top: 1px solid $footer_border_color;
-	font-size: 16px;
-	font-size: 1.6rem;
+	background-color: $white;
+	border-top: 1px solid $grey;
+	@include font-size(1.6);
 	line-height: 1;
 	padding: 60px 0;
 	text-align: center;
+}
 
-	p {
-		margin-bottom: 0;
-	}
+.site-footer p {
+	margin-bottom: 0;
 }

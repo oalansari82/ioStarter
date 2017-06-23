@@ -1,0 +1,29 @@
+.site-header {
+	background-color: $white;
+
+	@include bp-large {
+		.title-area {
+		text-align: center;
+		}
+
+		ul.genesis-nav-menu {
+			float: none;
+		}
+	}
+}
+
+.site-header > .wrap {
+	padding: 20px 0;
+}
+
+.site-header .wrap {
+	@include bp-large {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	@include bp-medium {
+		padding-left: 5%;
+        padding-right: 5%;
+	}
+}

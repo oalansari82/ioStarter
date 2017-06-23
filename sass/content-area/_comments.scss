@@ -1,82 +1,63 @@
 /* ## Comments
 --------------------------------------------- */
 
+.comment-respond,
+.entry-comments,
+.entry-pings {
+	background-color: $white;
+	@include font-size(1.6);
+	margin-bottom: 40px;
+
+	@include bp-medium {
+		padding: 30px;
+		margin-bottom: 5%;
+	}
+}
+
+.comment-respond,
+.entry-pings {
+	padding: 60px 60px 32px;
+}
+
+.entry-comments {
+	padding: 60px;
+}
+
+.comment-list li {
+	padding: 40px 0 0 30px;
+}
+
+.comment-list .depth-1 {
+	padding-left: 0;
+}
+
 .comment-header {
 	margin-bottom: 30px;
-
-	p {
-		margin-bottom: 0;
-	}
 }
 
 .comment-content {
 	clear: both;
-
-	ul > li {
-		list-style-type: disc;
-	}
 }
 
-.entry-comments {
-	background-color: #fff;
-	font-size: 16px;
-	font-size: 1.6rem;
-	margin-bottom: 40px;
-	padding: 60px;
-
-	@media only screen and (max-width: 860px) {
-		padding: 30px;
-		margin-bottom: 5%;
-	}
+.comment-content ul > li {
+	list-style-type: disc;
 }
 
-.entry-pings {
-	background-color: #fff;
-	font-size: 16px;
-	font-size: 1.6rem;
-	margin-bottom: 40px;
-	padding: 60px 60px 32px;
-
-	.reply {
-		display: none;
-	}
-
-	@media only screen and (max-width: 860px) {
-		padding: 30px;
-		margin-bottom: 5%;
-	}
+.comment-respond input[type="email"],
+.comment-respond input[type="text"],
+.comment-respond input[type="url"] {
+	width: 50%;
 }
 
-.comment-respond {
-	background-color: #fff;
-	font-size: 16px;
-	font-size: 1.6rem;
-	margin-bottom: 40px;
-	padding: 60px 60px 32px;
-
-	input[type="email"],
-	input[type="text"],
-	input[type="url"] {
-		width: 100%;
-	}
-
-	label {
-		display: block;
-		margin-right: 12px;
-	}
-
-	@media only screen and (max-width: 860px) {
-		padding: 30px;
-		margin-bottom: 5%;
-	}
+.comment-respond label {
+	display: block;
+	margin-right: 12px;
 }
 
-.comment-list {
-	li {
-		padding: 40px 0 0 30px;
-	}	
+.comment-header p {
+	margin-bottom: 0;
+}
 
-	.depth-1 {
-		padding-left: 0;
-	}
+.entry-pings .reply {
+	display: none;
 }

@@ -1,0 +1,19 @@
+/* ## Widget Area
+--------------------------------------------- */
+
+.site-header .widget-area {
+	float: right;
+	text-align: right;
+	width: 800px;
+
+	@include bp-xxlarge {
+		width: 800px;
+	}
+	@include bp-xlarge {
+		width: 620px;
+	}
+	@include bp-large {
+		width: 100%;
+		text-align: center;
+	}
+}

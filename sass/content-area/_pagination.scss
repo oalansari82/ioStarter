@@ -5,12 +5,8 @@
 	clear: both;
 	margin: 40px 0;
 
-	@media only screen and (max-width: 860px) {
+	@include bp-medium {
 		margin: 5% auto;
-
-		li a {
-			margin-bottom: 4px;
-		}
 	}
 }
 
@@ -18,31 +14,30 @@
 	margin-bottom: 0;
 }
 
-.archive-pagination {
-	li {
-		display: inline;
-	}
-	
-	a {
-		background-color: $pagination_background_color;
-		color: $pagination_text_color;
-		cursor: pointer;
-		display: inline-block;
-		font-size: 16px;
-		font-size: 1.6rem;
-		font-weight: 600;
-		padding: 8px 12px;
-		text-decoration: none;
+.archive-pagination li {
+	display: inline;
 
-		&:hover,
-		&:focus {
-			background-color: $pagination_background_hover_color;
-			color: $pagination_text_hover_color;
+	@include bp-medium {
+		a {
+			margin-bottom: 4px;
 		}
 	}
+}
 
-	.active a {
-		background-color: $pagination_background_hover_color;
-		color: $pagination_text_hover_color;
-	}
+.archive-pagination a {
+	background-color: $white;
+	color: $black;
+	cursor: pointer;
+	display: inline-block;
+	@include font-size(1.6);
+	font-weight: 600;
+	padding: 8px 12px;
+	text-decoration: none;
+}
+
+.archive-pagination a:focus,
+.archive-pagination a:hover,
+.archive-pagination .active a {
+	background-color: $link;
+	color: $white;
 }

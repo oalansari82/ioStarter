@@ -10,7 +10,7 @@ var gulp = require( 'gulp' ),
 var sassSources = ['sass/style.scss']
 var rtlSource = ['style.css']
 
-// Define BrowserSync proxy url
+// Define BrowserSync proxy url - Replace URL with your own
 var bs_url = 'iostarter.dev';
 
 // Sass

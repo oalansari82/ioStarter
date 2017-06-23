@@ -15,7 +15,7 @@
 	float: right;
 	margin: 12px auto 0;
 
-	@media only screen and (max-width: 1023px) {
+	@include bp-large {
 		float: none;
 		margin: 16px auto;
 	}

@@ -1,29 +1,32 @@
 /*!
 	Theme Name: ioStarter Theme
-	Theme URI: http://www.alansari.io
+	Theme URI: http://www.alansari.io/
 	Description: This is a starter child theme for Genesis Framework.
 	Author: Omar Al-Ansari
-	Author URI: http://www.alansari.io
+	Author URI: http://www.alansari.io/
 
-	Version: 0.0.1
+	Version: 1.0.0
 
 	Tags: 
 
 	Template: genesis
-	Template Version: 2.4.2
+	Template Version: 2.3.0
 
 	License: GPL-2.0+
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+	Text Domain: iostarter
 */
 
 @import "variables/index";
-@import "base/index";
-@import "mixin/index";
+@import "mixins/index";
+@import "html5-reset/index";
 @import "defaults/index";
-@import "layout/index";
+@import "structure-and-layout/index";
 @import "common-classes/index";
 @import "widgets/index";
 @import "plugins/index";
+@import "skip-links/index";
 @import "site-header/index";
 @import "site-navigation/index";
 @import "content-area/index";
