@@ -62,9 +62,9 @@
 	border: 1px solid $grey;
 	height: auto;
 	padding: 4px;
-}
 
-.gallery img:focus,
-.gallery img:hover {
-	border: 1px solid #999;
+	&:focus,
+	&:hover {
+		border: 1px solid #999;
+	}
 }

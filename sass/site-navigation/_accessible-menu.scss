@@ -1,15 +1,19 @@
 /* ## Accessible Menu
 --------------------------------------------- */
 
-.menu .menu-item:focus {
-	position: static;
-}
+.menu {
+	.menu-item:focus {
+		position: static;
+	}
 
-.menu .menu-item > a:focus + ul.sub-menu,
-.menu .menu-item.sfHover > ul.sub-menu {
-	left: auto;
-	opacity: 1;
-}
+	.menu-item > a:focus + ul.sub-menu,
+	.menu-item.sfHover > ul.sub-menu {
+		left: auto;
+		opacity: 1;
+	}
+} 
+
+
 
 .menu-toggle {
 	@include bp-large {
@@ -23,9 +27,9 @@
 
 		&:focus,
 		&:hover {
-			background-color: #fff;
+			background-color: transparent;
 			border-width: 0;
-			color: #c3251d;
+			color: $link;
 			border-top: none;
 		}
 
@@ -48,9 +52,9 @@
 
 		&:focus,
 		&:hover {
-			background-color: #fff;
+			background-color: $white;
 			border-width: 0;
-			color: #c3251d;
+			color: $link;
 		}
 
 		&::before {
@@ -78,9 +82,9 @@
 	visibility: hidden;
 
 	@include bp-large {
-		background-color: #fff;
+		background-color: $white;
 		border-width: 0;
-		color: #333;
+		color: $black;
 		display: block;
 		margin: 10px auto;
 		overflow: hidden;

@@ -12,26 +12,29 @@
 	}
 }
 
-.entry-content ol,
-.entry-content ul {
-	margin-bottom: 28px;
-	margin-left: 40px;
+.entry-content {
+	ol,
+	ul {
+		margin-bottom: 28px;
+		margin-left: 40px;
+	}
+
+	ol > li {
+		list-style-type: decimal;
+	}
+
+	ul > li {
+		list-style-type: disc;
+	}
+
+	ol ol,
+	ul ul {
+		margin-bottom: 0;
+	}
+
+	code {
+		background-color: $black;
+		color: $grey;
+	}
 }
 
-.entry-content ol > li {
-	list-style-type: decimal;
-}
-
-.entry-content ul > li {
-	list-style-type: disc;
-}
-
-.entry-content ol ol,
-.entry-content ul ul {
-	margin-bottom: 0;
-}
-
-.entry-content code {
-	background-color: $black;
-	color: $grey;
-}

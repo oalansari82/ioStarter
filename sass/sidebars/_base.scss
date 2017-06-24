@@ -5,14 +5,14 @@
 	@include bp-medium {
 		margin-bottom: 5%;
 	}
-}
 
-.sidebar .widget {
-	background-color: $white;
-	padding: 40px;
+	.widget {
+		background-color: $white;
+		padding: 40px;
 
-	@include bp-medium {
-		padding: 30px;
-		margin-bottom: 5%;
+		@include bp-medium {
+			padding: 30px;
+			margin-bottom: 5%;
+		}
 	}
 }

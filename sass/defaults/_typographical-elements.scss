@@ -48,12 +48,12 @@ textarea:focus,
 a {
 	color: $link;
 	text-decoration: underline;
-}
 
-a:focus,
-a:hover {
-	color: $black;
-	text-decoration: none;
+	&:focus,
+	&:hover {
+		color: $black;
+		text-decoration: none;
+	}
 }
 
 p {
@@ -98,14 +98,14 @@ mark {
 
 blockquote {
 	margin: 40px;
-}
 
-blockquote::before {
-	content: "\201C";
-	display: block;
-	@include font-size(3);
-	height: 0;
-	left: -20px;
-	position: relative;
-	top: -10px;
+	&::before {
+		content: "\201C";
+		display: block;
+		@include font-size(3);
+		height: 0;
+		left: -20px;
+		position: relative;
+		top: -10px;
+	}
 }

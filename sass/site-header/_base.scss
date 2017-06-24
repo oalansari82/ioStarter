@@ -10,20 +10,20 @@
 			float: none;
 		}
 	}
-}
 
-.site-header > .wrap {
-	padding: 20px 0;
-}
-
-.site-header .wrap {
-	@include bp-large {
-		padding-left: 0;
-		padding-right: 0;
+	> .wrap {
+		padding: 20px 0;
 	}
 
-	@include bp-medium {
-		padding-left: 5%;
-        padding-right: 5%;
+	.wrap {
+		@include bp-large {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		@include bp-medium {
+			padding-left: 5%;
+			padding-right: 5%;
+		}
 	}
 }

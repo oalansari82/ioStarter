@@ -1,15 +1,17 @@
 /* ## Featured Content
 --------------------------------------------- */
 
-.featured-content .entry {
-	background: none;
-	padding: 0;
-}
+.featured-content {
+	.entry {
+		background: none;
+		padding: 0;
 
-.featured-content .entry:last-of-type {
-	margin-bottom: 0;
-}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
 
-.featured-content .entry-title {
-	@include font-size(2);
-}
+	.entry-title {
+		@include font-size(2);
+	}
+} 

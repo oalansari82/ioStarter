@@ -14,30 +14,37 @@
 	margin-bottom: 0;
 }
 
-.archive-pagination li {
-	display: inline;
+.archive-pagination {
+	li {
+		display: inline;
 
-	@include bp-medium {
-		a {
-			margin-bottom: 4px;
+		@include bp-medium {
+			a {
+				margin-bottom: 4px;
+			}
 		}
+	}
+
+	a {
+		background-color: $white;
+		color: $black;
+		cursor: pointer;
+		display: inline-block;
+		@include font-size(1.6);
+		font-weight: 600;
+		padding: 8px 12px;
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			background-color: $link;
+			color: $white;
+		}
+	}
+
+	.active a {
+		background-color: $link;
+		color: $white;
 	}
 }
 
-.archive-pagination a {
-	background-color: $white;
-	color: $black;
-	cursor: pointer;
-	display: inline-block;
-	@include font-size(1.6);
-	font-weight: 600;
-	padding: 8px 12px;
-	text-decoration: none;
-}
-
-.archive-pagination a:focus,
-.archive-pagination a:hover,
-.archive-pagination .active a {
-	background-color: $link;
-	color: $white;
-}
