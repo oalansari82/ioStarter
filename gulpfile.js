@@ -1,7 +1,10 @@
 var gulp = require( 'gulp' ),
-	gutil = require( 'gulp-util' ),
-	compass = require( 'gulp-compass' ),
-	autoprefixer = require('gulp-autoprefixer'),
+	sass = require('gulp-sass'),
+	postcss = require('gulp-postcss'),
+	assets = require('postcss-assets'),
+	autoprefixer = require('autoprefixer'),
+	mqpacker = require('css-mqpacker'),
+	cssnano = require('cssnano'),
 	rtlcss = require('gulp-rtlcss'),
 	rename = require('gulp-rename'),
 	browserSync  = require('browser-sync'),
@@ -11,27 +14,35 @@ var sassSources = ['sass/style.scss']
 var rtlSource = ['style.css']
 
 // Define BrowserSync proxy url - Replace URL with your own
-var bs_url = 'iostarter.dev';
+var bs_url = 'fqsa.dev';
 
 // Sass
-gulp.task( 'compass', function() {
-	gulp.src(sassSources)
-		.pipe(compass({
-			css: '',
-			sass: 'sass',
-			image: 'images',
-			style: 'expanded'
-		}))
-		.pipe(autoprefixer())
-		.on('error', gutil.log)
-		.pipe(gulp.dest(''))
-});
+// CSS processing
+gulp.task('css', function() {
+
+	var postCssOpts = [
+	assets({ loadPaths: ['images/'] }),
+	autoprefixer({ browsers: ['last 2 versions', '> 2%'] }),
+	mqpacker
+	];
+
+	return gulp.src(sassSources)
+	  .pipe(sass({
+		outputStyle: 'compressed',
+		imagePath: 'images/',
+		precision: 3,
+		errLogToConsole: true
+	  }))
+	  .pipe(postcss(postCssOpts))
+	  .pipe(gulp.dest(''));
+
+  });
 
 // Right to left CSS
 gulp.task( 'rtlcss', function() {
 	gulp.src(rtlSource)
 		.pipe(rtlcss())
-		.pipe(rename({ 
+		.pipe(rename({
 			basename: "style-rtl",
 			extname: ".css"
 		}))
@@ -41,15 +52,27 @@ gulp.task( 'rtlcss', function() {
 // Browsersync
 gulp.task('browsersync', function() {
     browserSync({
+		injectChanges: true,
         proxy: bs_url,
-        notify: false
+		notify: false,
+		// Open the site in Chrome & Firefox
+		browser: ["google chrome", "/Applications/Firefox Developer Edition.app"]
     });
 
     // Watch for changes
-    gulp.watch( 'sass/**/*.scss', ['compass'] );
-	gulp.watch( 'style.css', ['rtlcss'] ).on("change", reload);
-	gulp.watch("**/*.php").on("change", reload);
+    gulp.watch( 'sass/**/*.scss', ['css'] ).on("change", function(e) {
+		return gulp.src(e.path)
+			.pipe(browserSync.reload({stream: true}));
+	});
+	gulp.watch( 'style.css', ['rtlcss'] ).on("change", function(e) {
+		return gulp.src(e.path)
+			.pipe(browserSync.reload({stream: true}));
+	});
+	gulp.watch("**/*.php").on("change", function(e) {
+		return gulp.src(e.path)
+			.pipe(browserSync.reload({stream: true}));
+	});
 });
 
-// Default 
-gulp.task( 'default', ['compass', 'rtlcss', 'browsersync'] );
+// Default
+gulp.task( 'default', ['css', 'rtlcss', 'browsersync'] );
