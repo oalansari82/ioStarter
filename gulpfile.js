@@ -14,7 +14,7 @@ var sassSources = ['sass/style.scss']
 var rtlSource = ['style.css']
 
 // Define BrowserSync proxy url - Replace URL with your own
-var bs_url = 'fqsa.dev';
+var bs_url = 'iostarter.dev';
 
 // Sass
 // CSS processing

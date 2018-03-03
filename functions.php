@@ -169,8 +169,18 @@ function genesis_sample_comments_gravatar( $args ) {
 
 }
 
-// Enqueue replace style.css with style-rtl.css 
+// Enqueue replace style.css with style-rtl.css
 add_action( 'wp_enqueue_scripts', 'io_enqueue_style_rtl_scripts' );
 function io_enqueue_style_rtl_scripts() {
 	wp_style_add_data( 'iostarter', 'rtl', 'replace' );
+}
+
+// Add class for screen readers to site description
+add_filter( 'genesis_attr_site-description', 'genesis_attributes_screen_reader_class' );
+
+//* Change the footer text
+add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
+function sp_footer_creds_filter( $creds ) {
+	$creds = 'Copyrights [footer_copyright first="2018"] &middot; <a href="#">ioStarter Theme</a> &middot; All rights reserved.';
+	return $creds;
 }
