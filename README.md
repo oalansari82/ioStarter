@@ -3,9 +3,12 @@ This is a custom child theme for Genesis Framework. It is still being built for 
 
 # Dependencies
 - gulp
-- gulp-util
-- gulp-compass
-- gulp-autoprefixer
+- gulp-sass
+- gulp-postcss
+- postcss-assets
+- autoprefixer
+- css-mqpacker
+- cssnano
 - gulp-rtlcss
 - gulp-rename
 - browser-sync
