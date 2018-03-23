@@ -7,73 +7,105 @@
  * @package Genesis Sample
  * @author  StudioPress
  * @license GPL-2.0+
- * @link    http://www.studiopress.com/
+ * @link    https://www.studiopress.com/
  */
 
-// Start the engine.
-include_once( get_template_directory() . '/lib/init.php' );
+// Starts the engine.
+require_once get_template_directory() . '/lib/init.php';
 
-// Setup Theme.
-include_once( get_stylesheet_directory() . '/lib/theme-defaults.php' );
+// Sets up the Theme.
+require_once get_stylesheet_directory() . '/lib/theme-defaults.php';
 
-// Set Localization (do not remove).
 add_action( 'after_setup_theme', 'genesis_sample_localization_setup' );
-function genesis_sample_localization_setup(){
+/**
+ * Sets localization (do not remove).
+ *
+ * @since 1.0.0
+ */
+function genesis_sample_localization_setup() {
+
 	load_child_theme_textdomain( 'genesis-sample', get_stylesheet_directory() . '/languages' );
+
 }
 
-// Add the helper functions.
-include_once( get_stylesheet_directory() . '/lib/helper-functions.php' );
+// Adds helper functions.
+require_once get_stylesheet_directory() . '/lib/helper-functions.php';
 
-// Add Image upload and Color select to WordPress Theme Customizer.
-require_once( get_stylesheet_directory() . '/lib/customize.php' );
+// Adds image upload and color select to Customizer.
+require_once get_stylesheet_directory() . '/lib/customize.php';
 
-// Include Customizer CSS.
-include_once( get_stylesheet_directory() . '/lib/output.php' );
+// Includes Customizer CSS.
+require_once get_stylesheet_directory() . '/lib/output.php';
 
-// Add WooCommerce support.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php' );
+// Adds WooCommerce support.
+require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php';
 
-// Add the required WooCommerce styles and Customizer CSS.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php' );
+// Adds the required WooCommerce styles and Customizer CSS.
+require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php';
 
-// Add the Genesis Connect WooCommerce notice.
-include_once( get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php' );
+// Adds the Genesis Connect WooCommerce notice.
+require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php';
 
-// Child theme (do not remove).
+// Defines the child theme (do not remove).
 define( 'CHILD_THEME_NAME', 'iostarter' );
 define( 'CHILD_THEME_URL', 'http://www.alansari.io/' );
-define( 'CHILD_THEME_VERSION', '1.1.0' );
+define( 'CHILD_THEME_VERSION', '1.3.0' );
 
-// Enqueue Scripts and Styles.
 add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
+/**
+ * Enqueues scripts and styles.
+ *
+ * @since 1.0.0
+ */
 function genesis_sample_enqueue_scripts_styles() {
 
-	wp_enqueue_style( 'genesis-sample-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700', array(), CHILD_THEME_VERSION );
+	wp_enqueue_style(
+		'genesis-sample-fonts',
+		'//fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700',
+		array(),
+		CHILD_THEME_VERSION
+	);
 	wp_enqueue_style( 'dashicons' );
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	wp_enqueue_script( 'genesis-sample-responsive-menu', get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js", array( 'jquery' ), CHILD_THEME_VERSION, true );
+	wp_enqueue_script(
+		'genesis-sample-responsive-menu',
+		get_stylesheet_directory_uri() . "/js/responsive-menus{$suffix}.js",
+		array( 'jquery' ),
+		CHILD_THEME_VERSION,
+		true
+	);
 	wp_localize_script(
 		'genesis-sample-responsive-menu',
 		'genesis_responsive_menu',
 		genesis_sample_responsive_menu_settings()
 	);
 
+	wp_enqueue_script(
+		'genesis-sample',
+		get_stylesheet_directory_uri() . '/js/genesis-sample.js',
+		array( 'jquery' ),
+		CHILD_THEME_VERSION,
+		true
+	);
+
 }
 
-// Define our responsive menu settings.
+/**
+ * Defines responsive menu settings.
+ *
+ * @since 2.3.0
+ */
 function genesis_sample_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'          => __( 'Menu', 'genesis-sample' ),
-		'menuIconClass'     => 'dashicons-before dashicons-menu',
-		'subMenu'           => __( 'Submenu', 'genesis-sample' ),
-		'subMenuIconsClass' => 'dashicons-before dashicons-arrow-down-alt2',
-		'menuClasses'       => array(
+		'mainMenu'         => __( '', 'genesis-sample' ),
+		'menuIconClass'    => 'dashicons-before dashicons-menu',
+		'subMenu'          => __( 'Submenu', 'genesis-sample' ),
+		'subMenuIconClass' => 'dashicons-before dashicons-arrow-down-alt2',
+		'menuClasses'      => array(
 			'combine' => array(
 				'.nav-primary',
-				'.nav-header',
 			),
 			'others'  => array(),
 		),
@@ -83,104 +115,188 @@ function genesis_sample_responsive_menu_settings() {
 
 }
 
-// Add HTML5 markup structure.
-add_theme_support( 'html5', array( 'caption', 'comment-form', 'comment-list', 'gallery', 'search-form' ) );
+// Sets the content width based on the theme's design and stylesheet.
+if ( ! isset( $content_width ) ) {
+	$content_width = 702; // Pixels.
+}
 
-// Add Accessibility support.
-add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu', 'headings', 'rems', 'search-form', 'skip-links' ) );
-
-// Add viewport meta tag for mobile browsers.
-add_theme_support( 'genesis-responsive-viewport' );
-
-// Add support for custom header.
-add_theme_support( 'custom-header', array(
-	'width'           => 600,
-	'height'          => 160,
-	'header-selector' => '.site-title a',
-	'header-text'     => false,
-	'flex-height'     => true,
-) );
-
-// Add support for custom background.
-add_theme_support( 'custom-background' );
-
-// Add support for after entry widget.
-add_theme_support( 'genesis-after-entry-widget-area' );
-
-// Add support for 3-column footer widgets.
-add_theme_support( 'genesis-footer-widgets', 3 );
-
-// Add Image Sizes.
-add_image_size( 'featured-image', 720, 400, TRUE );
-
-// Rename primary and secondary navigation menus.
-add_theme_support( 'genesis-menus', array(
-    'primary' => __( 'Primary Navigation Menu', 'genesis-sample' ),
-    'secondary' => __( 'Footer Menu', 'genesis-sample' ) )
+// Adds support for HTML5 markup structure.
+add_theme_support(
+	'html5', array(
+		'caption',
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'search-form',
+	)
 );
 
-// Remove the header right widget area.
+// Adds support for accessibility.
+add_theme_support(
+	'genesis-accessibility', array(
+		'404-page',
+		'drop-down-menu',
+		'headings',
+		'rems',
+		'search-form',
+		'skip-links',
+	)
+);
+
+// Adds viewport meta tag for mobile browsers.
+add_theme_support(
+	'genesis-responsive-viewport'
+);
+
+// Adds custom logo in Customizer > Site Identity.
+add_theme_support(
+	'custom-logo', array(
+		'height'      => 120,
+		'width'       => 700,
+		'flex-height' => true,
+		'flex-width'  => true,
+	)
+);
+
+// Renames primary and secondary navigation menus.
+add_theme_support(
+	'genesis-menus', array(
+		'primary'   => __( 'Header Menu', 'genesis-sample' ),
+		'secondary' => __( 'Footer Menu', 'genesis-sample' ),
+	)
+);
+
+// Adds support for after entry widget.
+add_theme_support( 'genesis-after-entry-widget-area' );
+
+// Adds support for 3-column footer widgets.
+add_theme_support( 'genesis-footer-widgets', 3 );
+
+// Removes header right widget area.
 unregister_sidebar( 'header-right' );
 
-// Reposition the primary navigation menu.
+// Removes secondary sidebar.
+unregister_sidebar( 'sidebar-alt' );
+
+// Removes site layouts.
+genesis_unregister_layout( 'content-sidebar-sidebar' );
+genesis_unregister_layout( 'sidebar-content-sidebar' );
+genesis_unregister_layout( 'sidebar-sidebar-content' );
+
+// Removes output of primary navigation right extras.
+remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+
+add_action( 'genesis_theme_settings_metaboxes', 'genesis_sample_remove_metaboxes' );
+/**
+ * Removes output of unused admin settings metaboxes.
+ *
+ * @since 2.6.0
+ *
+ * @param string $_genesis_admin_settings The admin screen to remove meta boxes from.
+ */
+function genesis_sample_remove_metaboxes( $_genesis_admin_settings ) {
+
+	remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
+	remove_meta_box( 'genesis-theme-settings-nav', $_genesis_admin_settings, 'main' );
+
+}
+
+add_filter( 'genesis_customizer_theme_settings_config', 'genesis_sample_remove_customizer_settings' );
+/**
+ * Removes output of header settings in the Customizer.
+ *
+ * @since 2.6.0
+ *
+ * @param array $config Original Customizer items.
+ * @return array Filtered Customizer items.
+ */
+function genesis_sample_remove_customizer_settings( $config ) {
+
+	unset( $config['genesis']['sections']['genesis_header'] );
+	return $config;
+
+}
+
+// Displays custom logo.
+add_action( 'genesis_site_title', 'the_custom_logo', 0 );
+
+// Repositions primary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
-add_action( 'genesis_header', 'genesis_do_nav' );
+add_action( 'genesis_header', 'genesis_do_nav', 12 );
 
-// Remove Primary Menu's wrap.
-add_theme_support( 'genesis-structural-wraps', array(
-    'header',
-    // 'menu-primary',
-    'menu-secondary',
-    'footer-widgets',
-    'footer'
-) );
-
-// Reposition the secondary navigation menu.
+// Repositions the secondary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
+add_action( 'genesis_footer', 'genesis_do_subnav', 10 );
 
-// Reduce the secondary navigation menu to one level depth.
 add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
+/**
+ * Reduces secondary navigation menu to one level depth.
+ *
+ * @since 2.2.3
+ *
+ * @param array $args Original menu options.
+ * @return array Menu options with depth set to 1.
+ */
 function genesis_sample_secondary_menu_args( $args ) {
 
-	if ( 'secondary' != $args['theme_location'] ) {
+	if ( 'secondary' !== $args['theme_location'] ) {
 		return $args;
 	}
 
 	$args['depth'] = 1;
-
 	return $args;
 
 }
 
-// Modify size of the Gravatar in the author box.
 add_filter( 'genesis_author_box_gravatar_size', 'genesis_sample_author_box_gravatar' );
+/**
+ * Modifies size of the Gravatar in the author box.
+ *
+ * @since 2.2.3
+ *
+ * @param int $size Original icon size.
+ * @return int Modified icon size.
+ */
 function genesis_sample_author_box_gravatar( $size ) {
+
 	return 90;
+
 }
 
-// Modify size of the Gravatar in the entry comments.
 add_filter( 'genesis_comment_list_args', 'genesis_sample_comments_gravatar' );
+/**
+ * Modifies size of the Gravatar in the entry comments.
+ *
+ * @since 2.2.3
+ *
+ * @param array $args Gravatar settings.
+ * @return array Gravatar settings with modified size.
+ */
 function genesis_sample_comments_gravatar( $args ) {
 
 	$args['avatar_size'] = 60;
-
 	return $args;
 
 }
 
-// Enqueue replace style.css with style-rtl.css
-add_action( 'wp_enqueue_scripts', 'io_enqueue_style_rtl_scripts' );
-function io_enqueue_style_rtl_scripts() {
-	wp_style_add_data( 'iostarter', 'rtl', 'replace' );
-}
-
-// Add class for screen readers to site description
-add_filter( 'genesis_attr_site-description', 'genesis_attributes_screen_reader_class' );
-
-//* Change the footer text
-add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
-function sp_footer_creds_filter( $creds ) {
-	$creds = 'Copyrights [footer_copyright first="2018"] &middot; <a href="#">ioStarter Theme</a> &middot; All rights reserved.';
-	return $creds;
+/**
+ *	Loads an alternate stylesheet, rather than the default style.css required by WordPress
+ *	This does not replace the requirement of including a style.css in your theme
+ *
+ *	@author Ren Ventura <EngageWP.com>
+ *	@link http://www.engagewp.com/load-minified-stylesheet-without-theme-header-wordpress
+ *
+ *	@param (string) $stylesheet_uri - Stylesheet URI for the current theme/child theme
+ *	@param (string) $stylesheet_dir_uri - Stylesheet directory URI for the current theme/child theme
+ *	@return (string) Path to alternate stylesheet
+ */
+add_filter( 'stylesheet_uri', 'io_load_alternate_stylesheet', 10, 2 );
+function io_load_alternate_stylesheet( $stylesheet_uri, $stylesheet_dir_uri ) {
+	if ( is_rtl() ) {
+		return trailingslashit( $stylesheet_dir_uri ) . 'css/style-rtl.min.css';
+	} else {
+		// Make sure this URI path is correct for your file
+		return trailingslashit( $stylesheet_dir_uri ) . 'css/style.min.css';
+	}
 }

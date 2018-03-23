@@ -7,12 +7,12 @@
  * @package Genesis Sample
  * @author  StudioPress
  * @license GPL-2.0+
- * @link    http://www.studiopress.com/
+ * @link    https://www.studiopress.com/
  */
 
 add_action( 'customize_register', 'genesis_sample_customizer_register' );
 /**
- * Register settings and controls with the Customizer.
+ * Registers settings and controls with the Customizer.
  *
  * @since 2.2.3
  *
@@ -59,6 +59,31 @@ function genesis_sample_customizer_register( $wp_customize ) {
 				'section'     => 'colors',
 				'settings'    => 'genesis_sample_accent_color',
 			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'genesis_sample_logo_width',
+		array(
+			'default'           => 350,
+			'sanitize_callback' => 'absint',
+		)
+	);
+
+	// Add a control for the logo size.
+	$wp_customize->add_control(
+		'genesis_sample_logo_width',
+		array(
+			'label'       => __( 'Logo Width', 'genesis-sample' ),
+			'description' => __( 'The maximum width of the logo in pixels.', 'genesis-sample' ),
+			'priority'    => 9,
+			'section'     => 'title_tagline',
+			'settings'    => 'genesis_sample_logo_width',
+			'type'        => 'number',
+			'input_attrs' => array(
+				'min' => 100,
+			),
+
 		)
 	);
 

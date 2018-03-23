@@ -7,11 +7,11 @@
  * @package Genesis Sample
  * @author  StudioPress
  * @license GPL-2.0+
- * @link    http://www.studiopress.com/
+ * @link    https://www.studiopress.com/
  */
 
 /**
- * Get default link color for Customizer.
+ * Gets default link color for Customizer.
  * Abstracted here since at least two functions use it.
  *
  * @since 2.2.3
@@ -19,11 +19,13 @@
  * @return string Hex color code for link color.
  */
 function genesis_sample_customizer_get_default_link_color() {
-	return '#c3251d';
+
+	return '#0073e5';
+
 }
 
 /**
- * Get default accent color for Customizer.
+ * Gets default accent color for Customizer.
  * Abstracted here since at least two functions use it.
  *
  * @since 2.2.3
@@ -31,15 +33,18 @@ function genesis_sample_customizer_get_default_link_color() {
  * @return string Hex color code for accent color.
  */
 function genesis_sample_customizer_get_default_accent_color() {
-	return '#c3251d';
+
+	return '#0073e5';
+
 }
 
 /**
- * Calculate the color contrast.
+ * Calculates if white or gray would contrast more with the provided color.
  *
  * @since 2.2.3
  *
- * @return string Hex color code for contrast color
+ * @param string $color A color in hex format.
+ * @return string The hex code for the most contrasting color: dark grey or white.
  */
 function genesis_sample_color_contrast( $color ) {
 
@@ -55,11 +60,14 @@ function genesis_sample_color_contrast( $color ) {
 }
 
 /**
- * Calculate the color brightness.
+ * Generates a lighter or darker color from a starting color.
+ * Used to generate complementary hover tints from user-chosen colors.
  *
  * @since 2.2.3
  *
- * @return string Hex color code for the color brightness
+ * @param string $color A color in hex format.
+ * @param int    $change The amount to reduce or increase brightness by.
+ * @return string Hex code for the adjusted color brightness.
  */
 function genesis_sample_color_brightness( $color, $change ) {
 
@@ -73,6 +81,6 @@ function genesis_sample_color_brightness( $color, $change ) {
 	$green = max( 0, min( 255, $green + $change ) );
 	$blue  = max( 0, min( 255, $blue + $change ) );
 
-	return '#'.dechex( $red ).dechex( $green ).dechex( $blue );
+	return '#' . dechex( $red ) . dechex( $green ) . dechex( $blue );
 
 }

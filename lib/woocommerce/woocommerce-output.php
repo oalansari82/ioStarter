@@ -7,16 +7,17 @@
  * @package Genesis Sample
  * @author  StudioPress
  * @license GPL-2.0+
- * @link    http://www.studiopress.com/
+ * @link    https://www.studiopress.com/
  */
 
 add_filter( 'woocommerce_enqueue_styles', 'genesis_sample_woocommerce_styles' );
 /**
- * Enqueue the theme's custom WooCommerce styles to the WooCommerce plugin.
+ * Enqueues the theme's custom WooCommerce styles to the WooCommerce plugin.
  *
+ * @param array $enqueue_styles The WooCommerce styles to enqueue.
  * @since 2.3.0
  *
- * @return array Required values for the Genesis Sample Theme's WooCommerce stylesheet.
+ * @return array Modified WooCommerce styles to enqueue.
  */
 function genesis_sample_woocommerce_styles( $enqueue_styles ) {
 
@@ -24,7 +25,7 @@ function genesis_sample_woocommerce_styles( $enqueue_styles ) {
 		'src'     => get_stylesheet_directory_uri() . '/lib/woocommerce/genesis-sample-woocommerce.css',
 		'deps'    => '',
 		'version' => CHILD_THEME_VERSION,
-		'media'   => 'screen'
+		'media'   => 'screen',
 	);
 
 	return $enqueue_styles;
@@ -33,7 +34,7 @@ function genesis_sample_woocommerce_styles( $enqueue_styles ) {
 
 add_action( 'wp_enqueue_scripts', 'genesis_sample_woocommerce_css' );
 /**
- * Add the themes's custom CSS to the WooCommerce stylesheet.
+ * Adds the themes's custom CSS to the WooCommerce stylesheet.
  *
  * @since 2.3.0
  *
@@ -46,12 +47,13 @@ function genesis_sample_woocommerce_css() {
 		return;
 	}
 
-	$color_link = get_theme_mod( 'genesis_sample_link_color', genesis_sample_customizer_get_default_link_color() );
+	$color_link   = get_theme_mod( 'genesis_sample_link_color', genesis_sample_customizer_get_default_link_color() );
 	$color_accent = get_theme_mod( 'genesis_sample_accent_color', genesis_sample_customizer_get_default_accent_color() );
 
 	$woo_css = '';
 
-	$woo_css .= ( genesis_sample_customizer_get_default_link_color() !== $color_link ) ? sprintf( '
+	$woo_css .= ( genesis_sample_customizer_get_default_link_color() !== $color_link ) ? sprintf(
+		'
 
 		.woocommerce div.product p.price,
 		.woocommerce div.product span.price,
@@ -67,9 +69,11 @@ function genesis_sample_woocommerce_css() {
 			color: %s;
 		}
 
-	', $color_link ) : '';
+	', $color_link
+	) : '';
 
-	$woo_css .= ( genesis_sample_customizer_get_default_accent_color() !== $color_accent ) ? sprintf( '
+	$woo_css .= ( genesis_sample_customizer_get_default_accent_color() !== $color_accent ) ? sprintf(
+		'
 		.woocommerce a.button:hover,
 		.woocommerce a.button:focus,
 		.woocommerce a.button.alt:hover,
@@ -107,7 +111,8 @@ function genesis_sample_woocommerce_css() {
 			color: %1$s;
 		}
 
-	', $color_accent, genesis_sample_color_contrast( $color_accent ) ) : '';
+	', $color_accent, genesis_sample_color_contrast( $color_accent )
+	) : '';
 
 	if ( $woo_css ) {
 		wp_add_inline_style( 'genesis-sample-woocommerce-styles', $woo_css );

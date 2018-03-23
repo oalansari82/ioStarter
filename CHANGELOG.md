@@ -1,5 +1,10 @@
 # ioStarter Theme Changelog
 
+## 1.3.0
+* Updated base code to Genesis Sample 2.6.0
+* Rewrite of gulpfile
+* Gulpfile support of JS
+
 ## 1.1.2
 * Added SVG logo Support
 * Added class for screen readers to site description
